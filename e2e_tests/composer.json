@@ -1,0 +1,30 @@
+{
+  "name": "belkacar/gauge-exporter-tests",
+  "license": "proprietary",
+  "type": "project",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "~8.3.0",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^7.8",
+    "phpunit/phpunit": "~11.1.0",
+    "symfony/process": "^7.0",
+    "belkacar/gauge-exporter-client": "0.2.0"
+  },
+  "repositories": {
+    "belkacar": {
+      "type": "composer",
+      "url": "https://gitlab.belkacar.ru/api/v4/group/php-backend/-/packages/composer/packages.json"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "BelkaCar\\GaugeExporterTests\\": "tests"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
