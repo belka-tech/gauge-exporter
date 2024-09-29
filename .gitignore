@@ -1,0 +1,4 @@
+/.idea
+/vendor
+/gauge-exporter
+/e2e_tests/.idea

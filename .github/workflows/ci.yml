@@ -1,0 +1,44 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+
+jobs:
+  unit_test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    container:
+      image: golang:1.21
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run unit tests
+        run: go test -v ./...
+
+  compile:
+    name: Build
+    runs-on: ubuntu-latest
+    container:
+      image: golang:1.21
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile Go application
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o gauge-exporter -buildvcs=false -ldflags "-X main.appVersion=${{ github.ref_name }}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: gauge-exporter
+          path: gauge-exporter
+          retention-days: 1
+
+
+
