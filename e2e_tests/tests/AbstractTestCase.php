@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BelkaCar\GaugeExporterTests;
+namespace BelkaTech\GaugeExporterTests;
 
-use Belkacar\GaugeExporterClient\GaugeExporterClient;
+use BelkaTech\GaugeExporterClient\GaugeExporterClient;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;

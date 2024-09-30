@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BelkaCar\GaugeExporterTests;
+namespace BelkaTech\GaugeExporterTests;
 
-use Belkacar\GaugeExporterClient\MetricBag;
-use Belkacar\GaugeExporterClient\Exception\BadResponseException;
+use BelkaTech\GaugeExporterClient\MetricBag;
+use BelkaTech\GaugeExporterClient\Exception\BadResponseException;
+use PHPUnit\Framework\Attributes\TestDox;
 
 final class BaseTest extends AbstractTestCase
 {
