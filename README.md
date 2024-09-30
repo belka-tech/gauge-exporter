@@ -75,4 +75,5 @@ The exporter provides the following built-in metrics:
 - `gauge_exporter_metrics_requests_total`: Total number of metric requests, labeled by status (success/failed)
 
 ## Clients
-TBA
+* [PHP Client](https://github.com/belka-tech/gauge-exporter-php-client)
+
