@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BelkaCar\GaugeExporterTests;
+namespace BelkaTech\GaugeExporterTests;
 
-use Belkacar\GaugeExporterClient\MetricBag;
+use BelkaTech\GaugeExporterClient\MetricBag;
+use PHPUnit\Framework\Attributes\TestDox;
 
 final class ZerofillTest extends AbstractTestCase
 {
