@@ -54,14 +54,26 @@ jobs:
         with:
           name: gauge-exporter
 
-      - name: Create GitHub Release and Upload Asset
-        uses: softprops/action-gh-release@v2
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: gauge-exporter
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: gauge-exporter
+          asset_name: gauge-exporter
+          asset_content_type: application/octet-stream
 
   e2e_test:
     name: E2E Tests
