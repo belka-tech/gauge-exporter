@@ -13,7 +13,8 @@ If you need to work with cumulative counters that only increase over time, this 
 
 ## Comparison
 
-### Gauge Exporter vs Prometheus Pushgateway 
+### Gauge Exporter vs Prometheus Pushgateway
+
 Gauge Exporter offers two key advantages over Prometheus Pushgateway.
 First, it automatically sets unprovided metric labels to zero, simplifying metric reporting with varying label sets.
 Second, it supports Time-to-Live (TTL) based metric expiration, allowing automatic cleanup of stale data.
@@ -25,7 +26,7 @@ These features make Gauge Exporter particularly suitable for scenarios with time
 
 To run the Gauge Exporter, use the following command:
 
-```bash
+```shell
 ./gauge-exporter --listen=0.0.0.0:8181
 ```
 
@@ -33,9 +34,9 @@ You can customize the listening address and port using the `--listen` flag.
 
 ### Endpoints
 
-1. `/metrics`: Prometheus metrics endpoint
-2. `/gauge/{metric_name}`: Input endpoint for gauge metrics
-3. `/version`: Returns the version of the exporter
+1. `PUT /gauge/{metric_name}`: Input endpoint for gauge metrics
+2. `GET /metrics`: Prometheus metrics endpoint
+3. `GET /version`: Returns the version of the exporter
 
 ### Inputting MetricBag 
 
@@ -65,7 +66,8 @@ To input a metric, send a PUT request to `/gauge/{metric_name}` with the followi
 
 ### Querying Metrics
 
-To query the metrics, send a GET request to the `/metrics` endpoint. This will return all the metrics in Prometheus format.
+To query the metrics, send a GET request to the `/metrics` endpoint.
+This will return all the metrics in Prometheus format.
 
 ## Built-in Metrics
 
